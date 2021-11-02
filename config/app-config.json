@@ -1,0 +1,31 @@
+{
+  "node_env": "dev",
+  "dev_env": "local",
+  "server": {
+    "host": "localhost",
+    "port": "8080",
+    "name": "local-server"
+  },
+  "logging": {
+    "enabled": true
+  },
+  "jwt": {
+    "secret": "from_env",
+    "saltRounds": 8
+  },
+  "db_main": {
+    "username": "db_user",
+    "password": "db_password",
+    "database": "db_name",
+    "host": "localhost",
+    "dialect": "postgres",
+    "logging": false,
+    "benchmark": false,
+    "pool": {
+      "max": 4,
+      "idle": 10000,
+      "acquire": 5000,
+      "evict": 1000
+    }
+  }
+}

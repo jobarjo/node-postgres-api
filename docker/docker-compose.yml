@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    env_file:
+      - "${PWD}/../env/.env"
+
+  app:
+    build:
+      context: ${PWD}/../
+      dockerfile: ./docker/Dockerfile
+    command: bash -c "
+      dockerize -wait tcp://db:5432 -timeout 20s
+      && yarn db:sync:force --db_host $${DB_MAIN__HOST}
+      && yarn db:seed
+      && yarn dev:debug"
+    volumes:
+      - "${PWD}/../:/api" # allows using nodemon
+    ports:
+      - "8080:8080" # app
+      - "9220:9220" # debugger
+    depends_on:
+      - db
+    env_file:
+      - "${PWD}/../env/.env"
+    environment:
+      DB_MAIN__HOST: db

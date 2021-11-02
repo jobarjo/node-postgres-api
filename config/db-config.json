@@ -1,0 +1,7 @@
+{
+  "username": "db_user",
+  "password": "db_password",
+  "database": "db_name",
+  "dialect": "postgres",
+  "host": "db"
+}

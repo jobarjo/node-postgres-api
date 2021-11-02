@@ -1,0 +1,6 @@
+docker/
+env/
+test/
+
+.eslint*
+.git*

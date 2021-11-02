@@ -1,0 +1,8 @@
+{
+  "USERS": {
+    "ROLES": {
+      "ADMIN": "ADMIN",
+      "BASIC": "BASIC"
+    }
+  }
+}
