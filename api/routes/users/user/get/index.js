@@ -1,14 +1,12 @@
 const { User } = require('../../../../resources/entities');
 const { isAdmin } = require('../../../../middlewares/permission/utils/utils');
 
-module.exports = (req, res, next) => {
+module.exports = (req, res) => {
   const { targetUser, requestUser } = req.locals;
 
   const user = filterPublicFields(targetUser, requestUser);
 
-  res.json(user);
-
-  return next();
+  return res.json(user);
 };
 
 /**

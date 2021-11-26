@@ -10,7 +10,5 @@ module.exports = async (req, res, next) => {
     return next(new restifyErrors.InternalServerError());
   }
 
-  res.json('Timestamp deleted.');
-
-  return next();
+  return res.json('Timestamp deleted.');
 };

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = (appConfig) => (req, res, next) => {
+module.exports = (appConfig) => (req, res) => {
   const { user } = req.locals;
 
   const token = jwt.sign(
@@ -13,10 +13,8 @@ module.exports = (appConfig) => (req, res, next) => {
     },
   );
 
-  res.json({
+  return res.json({
     id: user.id,
     accessToken: token,
   });
-
-  return next();
 };

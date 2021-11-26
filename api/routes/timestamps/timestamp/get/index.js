@@ -1,14 +1,12 @@
 const R = require('ramda');
 const { User } = require('../../../../resources/entities');
 
-module.exports = (req, res, next) => {
+module.exports = (req, res) => {
   const { targetTimestamp } = req.locals;
 
   const timestamp = processTimestamp(targetTimestamp);
 
-  res.json(timestamp);
-
-  return next();
+  return res.json(timestamp);
 };
 
 function processTimestamp(targetTimestamp) {

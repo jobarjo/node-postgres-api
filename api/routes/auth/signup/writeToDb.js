@@ -21,12 +21,10 @@ module.exports = (appConfig, dbMain) => async (req, res, next) => {
       passwordHash,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      role: USERS.ROLES.BACIC,
+      role: USERS.ROLES.BASIC,
     });
 
-    res.json('User successfully registered!');
-
-    return next();
+    return res.json('User successfully registered!');
   } catch (err) {
     logger.error(`[auth-signup-writeToDb] Sequelize Error: ${err}`);
     return next(new restifyErrors.InternalServerError());

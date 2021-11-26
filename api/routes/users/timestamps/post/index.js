@@ -19,8 +19,6 @@ module.exports = {
       return next(new restifyErrors.InternalServerError());
     }
 
-    res.json(timestamp);
-
-    return next();
+    return res.json(timestamp);
   },
 };

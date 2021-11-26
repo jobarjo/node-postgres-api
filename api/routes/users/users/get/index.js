@@ -15,7 +15,5 @@ module.exports = (dbMain) => async (req, res, next) => {
     return next(new restifyErrors.InternalServerError());
   }
 
-  res.json(users);
-
-  return next();
+  return res.json(users);
 };

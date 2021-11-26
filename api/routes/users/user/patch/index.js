@@ -36,8 +36,6 @@ module.exports = {
       return next(new restifyErrors.InternalServerError());
     }
 
-    res.json('User updated.');
-
-    return next();
+    return res.json('User updated.');
   },
 };

@@ -12,7 +12,5 @@ module.exports = () => async (req, res, next) => {
     return next(new restifyErrors.InternalServerError());
   }
 
-  res.json(timestamps);
-
-  return next();
+  return res.json(timestamps);
 };
